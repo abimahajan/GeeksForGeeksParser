@@ -1,4 +1,4 @@
-package com.category.geeksForGeeks;
+package com.geeks.parser.utils;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -30,14 +30,14 @@ public class DownloadFile
 				String fileName=entry.getKey()+".html";
 				
 				//characters not allowed while creating file name
-				for(String stop:Geeks.stopCharacterFolder)
+				for(String stop:PropertiesFileConfig.stopCharacterFolder)
 				{
 					if(fileName.contains(stop))
 						fileName=fileName.replaceAll("\\"+stop, "");
 				}
 				
 				createFile(dir,fileName);
-				BufferedWriter out = new BufferedWriter(new FileWriter(Geeks.baseFolder+categoryName+"/"+fileName));
+				BufferedWriter out = new BufferedWriter(new FileWriter(PropertiesFileConfig.baseFolder+categoryName+"/"+fileName));
 			    out.write(doc.html());
 			    out.close();
 			} catch (IOException e) {
@@ -63,7 +63,7 @@ public class DownloadFile
 
 	private static File createDirectory(String categoryName) 
 	{
-		File dir=new File(Geeks.baseFolder+categoryName);
+		File dir=new File(PropertiesFileConfig.baseFolder+categoryName);
 		if(!dir.exists())
 		{
 			dir.mkdir();
