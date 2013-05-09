@@ -47,8 +47,7 @@ public class Geeks
 				doc = Jsoup.connect(linkToParse).get();
 				
 				//get number of pages in that category
-				String pages=doc.select(divForPages).select(spanForPages).toString();
-				pages=StringUtils.substringBetween(pages, "<span class=\"pages\">", "</span>");
+				String pages=doc.select(divForPages).select(spanForPages).text();
 				if(pages.contains("of"))
 				{
 					pages=pages.split("of")[1].trim();
