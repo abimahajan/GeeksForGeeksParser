@@ -47,7 +47,6 @@ public class Geeks
 				doc = Jsoup.connect(linkToParse).get();
 				
 				//get number of pages in that category
-				System.out.println(doc.html());
 				String pages=doc.select(divForPages).select(spanForPages).toString();
 				pages=StringUtils.substringBetween(pages, "<span class=\"pages\">", "</span>");
 				if(pages.contains("of"))
@@ -69,6 +68,7 @@ public class Geeks
 			        	questionsMap.put(title, href);
 					}
 				}
+				//download html for each category
 				download.downloadFromMap(questionsMap,StringUtils.substringAfterLast(StringUtils.substringBeforeLast(linkToParse, "/"),"/"));
 				questionsMap.clear();
 				
