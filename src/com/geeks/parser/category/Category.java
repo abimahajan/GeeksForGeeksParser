@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
 import com.geeks.parser.utils.DownloadFile;
 import com.geeks.parser.utils.PropertiesFileConfig;
 
-public class Geeks 
+public class Category 
 {
 	
 	public static Map<String,String> questionsMap = new HashMap<String,String>();

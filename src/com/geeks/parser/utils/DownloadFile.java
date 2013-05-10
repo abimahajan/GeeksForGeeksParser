@@ -25,6 +25,12 @@ public class DownloadFile
 		    Entry<String, String> entry = entries.next();
 		    try {
 		    	
+		    	try {
+	    			Thread.sleep(Long.parseLong(PropertiesFileConfig.waitTime));
+	    		} catch (InterruptedException e) {
+	    			e.printStackTrace();
+	    		}
+	    		
 				doc = Jsoup.connect(entry.getValue()).get();
 				
 				String fileName=entry.getKey()+".html";
