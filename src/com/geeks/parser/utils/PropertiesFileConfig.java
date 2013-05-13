@@ -74,6 +74,8 @@ public class PropertiesFileConfig {
     		
     		if(prop.containsKey("WAIT_TIME"))
     			waitTime=prop.getProperty("WAIT_TIME");
+    		else
+    			waitTime="1";
     		
     		if(prop.containsKey("STOP_CHARACTER_FOLDER"))
     			stopCharacterFolder=prop.getProperty("STOP_CHARACTER_FOLDER").split("@");

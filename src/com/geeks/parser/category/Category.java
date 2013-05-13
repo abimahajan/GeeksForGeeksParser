@@ -35,6 +35,16 @@ public class Category
 		{
 			try 
 			{
+				
+				//sleeping for wait time period.
+				try {
+					Thread.sleep(Long.valueOf(PropertiesFileConfig.waitTime));
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
 				doc = Jsoup.connect(linkToParse).get();
 				
 				//get number of pages in that category
